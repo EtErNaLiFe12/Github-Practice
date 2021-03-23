@@ -1,7 +1,8 @@
 # Github-practice programming
-
-1. HTML
-2. CSS
-3. JAVASCRIPT
-4. SCSS
-5. BOOTSTRAP
+------------------------------
+1. Html
+2. Css
+3. Javascript
+4. Scss/Sass
+5. Bootstrap
+6. NodeJS
