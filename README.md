@@ -1,4 +1,4 @@
-# Github-practice programming
+# Practice programming
 ------------------------------
 1. Html
 2. Css
