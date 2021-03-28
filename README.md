@@ -1,8 +1,9 @@
 # Practice programming
-------------------------------
-1. Html
-2. Css
-3. Javascript
-4. Scss/Sass
-5. Bootstrap
-6. React
+
+## Study List
+1. **Html**
+1. **Css**
+1. **Javascript**
+1. **Scss/Sass**
+1. **Bootstrap**
+1. **React**
