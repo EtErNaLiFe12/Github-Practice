@@ -7,3 +7,4 @@
 1. **Scss/Sass**
 1. **Bootstrap**
 1. **React**
+1. **vue.js**
