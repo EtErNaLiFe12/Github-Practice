@@ -1,0 +1,74 @@
+.container h1 {
+    color: royalblue;
+    background-color: orange;
+    font-size: 60px;
+} 
+
+/* ---------------------------------------------- */
+
+.container > ul li {
+  font-size: 40px;
+}
+.container > ul li .name {
+  color: royalblue;
+}
+.container > ul li .age {
+  color: orange;
+}
+
+/* ---------------------------------------------- */
+
+/* 상위 선택자 참조 */
+
+.btn {
+  position: absolute;
+}
+.btn.active {
+  color: red;
+}
+.list li:last-child {
+  margin-right: 0;
+}
+
+/* ---------------------------------------------- */
+
+.fs-small {
+  font-size: 12px;
+}
+.fs-medium {
+  font-size: 14px;
+}
+.fs-large {
+  font-size: 16px;
+}
+
+/* ---------------------------------------------- */
+
+/* 중첩된 속성 */
+
+.box {
+  font-weight: bold;
+  font-size: 10px;
+  font-family: sans-serif;
+  margin-top: 10px;
+  margin-left: 20px;
+  padding-top: 10px;
+  padding-bottom: 40px;
+  padding-left: 20px;
+  padding-right: 30px;
+}
+
+/* ---------------------------------------------- */
+
+/* 변수 (Variables) */
+
+.container {
+  position: fixed;
+  top: 50px;
+  left: 150px;
+}
+.container .item {
+  width: 150px;
+  height: 150px;
+  transform: translateX(100px);
+}
