@@ -1,0 +1,90 @@
+$color: royalblue;
+.container {
+  h1 {
+    color: $color;
+    background-color: orange;
+    font-size: 60px;
+  }
+}
+
+.container {
+  > ul {
+      li {
+        font-size: 40px;
+        .name {
+          color: royalblue;
+        }
+        .age {
+          color: orange;
+       }
+    }
+  }
+}
+
+// ----------------------------------------------
+
+// & 상위 선택자 참조
+
+.btn {
+  position: absolute;
+  &.active {
+    color: red;
+  }
+}
+
+.list {
+  li {
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+}
+
+//----------------------------------------------
+
+.fs {
+  &-small { font-size: 12px; }
+  &-medium { font-size: 14px; }
+  &-large { font-size: 16px; }
+}
+
+// ----------------------------------------------
+
+// 중첩된 속성
+
+.box {
+  font: {
+    weight: bold;
+    size: 10px;
+    family: sans-serif;
+  };
+  margin: {
+    top: 10px;
+    left: 20px;
+  };
+  padding: {
+    top: 10px;
+    bottom: 40px;
+    left: 20px;
+    right: 30px;
+  }
+}
+
+// ----------------------------------------------
+
+// 변수 (Variables)
+
+$size: 100px; // 전역 변수(전체)!!
+
+.container {
+  $size: 50px;
+  position: fixed;
+  top: $size;
+  .item {
+    $size: 150px;
+    width: $size;
+    height: $size;
+    transform: translateX(100px);
+  }
+  left: $size;
+}
