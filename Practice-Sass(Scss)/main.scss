@@ -88,3 +88,29 @@ $size: 100px; // 전역 변수(전체)!!
   }
   left: $size;
 }
+
+// ----------------------------------------------
+
+// 연산
+
+div {
+  $size: 30px;
+  width: 20px + 20px;
+  height: 40px - 10px;
+  font-size: 10px * 2;
+  margin: (30px / 2); // ()를 통해 나누기를 해야 연산이 가능함.
+  margin: 15px + 6px / 2; // + - * 를 앞에 쓰므로써 /로 나누기 연산 가능
+  margin: $size / 2; // 변수를 통해 나누기 연산 가능
+  padding: 20px % 7;
+}
+span {
+  font-size: 10px;
+  line-height: 10px;
+  font-family: serif;
+  font: 10px / 10px serif; // 단축속성 /를 통해 앞은 font-size 뒤는 line-height를 표시 한다.
+}
+
+div {
+  width: 100% - 200px; // 단위가 동일해야함. 단 calc() 함수를 통해 연산 가능
+  width: calc(100% - 200px); 
+}
