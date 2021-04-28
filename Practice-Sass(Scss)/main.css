@@ -95,3 +95,185 @@ span {
 div {
   width: calc(100% - 200px);
 }
+
+/* ---------------------------------------------- */
+
+/*Mixin*/
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.container .item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* ---------------------------------------------- */
+
+.container {
+  width: 200px;
+  height: 200px;
+  background-color: tomato;
+}
+.container .item {
+  width: 100px;
+  height: 100px;
+  background-color: tomato;
+}
+.box {
+  width: 100px;
+  height: 100px;
+  background-color: tomato;
+}
+
+/* ---------------------------------------------- */
+
+.container {
+  width: 200px;
+  height: 200px;
+  background-color: tomato;
+}
+.container .item {
+  width: 300px;
+  height: 300px;
+  background-color: tomato;
+}
+.box {
+  width: 300px;
+  height: 300px;
+  background-color: tomato;
+}
+
+/* ---------------------------------------------- */
+
+.container {
+  width: 200px;
+  height: 200px;
+  background-color: red;
+}
+.container .item {
+  width: 300px;
+  height: 300px;
+  background-color: green;
+}
+.box {
+  width: 300px;
+  height: 300px;
+  background-color: tomato;
+}
+
+/* ---------------------------------------------- */
+
+.container {
+  width: 200px;
+  height: 200px;
+  background-color: red;
+}
+.container .item {
+  width: 300px;
+  height: 300px;
+  background-color: royalblue;
+}
+.box {
+  width: 300px;
+  height: 300px;
+  background-color: tomato;
+}
+
+/* ---------------------------------------------- */
+/*반복문*/
+
+.box { width: 100px; }
+.box { width: 100px; }
+.box { width: 100px; }
+.box { width: 100px; }
+.box { width: 100px; }
+.box { width: 100px; }
+.box { width: 100px; }
+.box { width: 100px; }
+.box { width: 100px; }
+.box { width: 100px; }
+
+/* ---------------------------------------------- */
+
+.box:nth-child(1) { width: 100px; }
+.box:nth-child(2) { width: 100px; }
+.box:nth-child(3) { width: 100px; }
+
+/* ---------------------------------------------- */
+
+.box:nth-child(1) { width: 100px; }
+.box:nth-child(2) { width: 200px; }
+.box:nth-child(3) { width: 300px; }
+
+/* ---------------------------------------------- */
+/*함수*/
+
+.box {
+  width: 100px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* ---------------------------------------------- */
+/*데이터 종류*/
+.box {
+  width: 100px;
+  color: red;
+  position: relative;
+}
+
+/* ---------------------------------------------- */
+
+.box {
+  color: orange;
+}
+.box {
+  color: royalblue;
+}
+.box {
+  color: yellow;
+}
+
+/* ---------------------------------------------- */
+
+.box-o {
+  color: orange;
+}
+.box-r {
+  color: royalblue;
+}
+.box-y {
+  color: yellow;
+}
+
+/* ---------------------------------------------- */
+/*재활용 @content*/
+
+.container {
+  width: 100px;
+  height: 100px;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.box {
+  width: 200px;
+  height: 300px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  margin: auto;
+}

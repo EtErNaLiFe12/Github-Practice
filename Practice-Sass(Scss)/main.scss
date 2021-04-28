@@ -111,6 +111,243 @@ span {
 }
 
 div {
-  width: 100% - 200px; // 단위가 동일해야함. 단 calc() 함수를 통해 연산 가능
+  // width: 100% - 200px; // 단위가 동일해야함. 단 calc() 함수를 통해 연산 가능
   width: calc(100% - 200px); 
+}
+
+// ----------------------------------------------
+
+// Mixin
+
+@mixin center { //재활용 구조를 만듬 @mixin
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.container {
+  @include center; // 재활용시에 @include를 사용
+  .item {
+    @include center;
+  }
+}
+.box {
+  @include center;
+}
+
+// ----------------------------------------------
+// JS 함수 같이 사용방법
+
+@mixin box($size) {
+  width: $size;
+  height: $size;
+  background-color: tomato;
+}
+.container {
+  @include box(200px);
+  .item {
+      @include box(100px);
+  }
+}
+.box {
+  @include box(100px);
+}
+
+// ----------------------------------------------
+// 기본값 지정 방법
+
+@mixin box($size: 300px) {
+  width: $size;
+  height: $size;
+  background-color: tomato;
+}
+.container {
+  @include box(200px);
+  .item {
+      @include box;
+  }
+}
+.box {
+  @include box;
+}
+
+// ----------------------------------------------
+
+@mixin box($size: 300px, $color: tomato) {
+  width: $size;
+  height: $size;
+  background-color: $color;
+}
+.container {
+  @include box(200px,red);
+  .item {
+      @include box(300px,green);
+  }
+}
+.box {
+  @include box;
+}
+
+// ----------------------------------------------
+
+@mixin box($size: 300px, $color: tomato) {
+  width: $size;
+  height: $size;
+  background-color: $color;
+}
+.container {
+  @include box(200px,red);
+  .item {
+      @include box($color: royalblue); // 키워드 인수
+  }
+}
+.box {
+  @include box;
+}
+
+// ----------------------------------------------
+// 반복문 
+
+//Javascript
+// for (let i = 0; i < 10; i += 1) {
+//   console.log(`loop-${i}`)
+// }
+
+@for $i from 1 through 10 {
+  .box {
+      width: 100px;
+  }
+}
+
+// ----------------------------------------------
+
+@for $i from 1 through 3 {
+  .box:nth-child(#{$i}) {
+      width: 100px;
+  }
+}
+
+// ----------------------------------------------
+
+@for $i from 1 through 3 {
+  .box:nth-child(#{$i}) { //SCSS 문자 보간 방법은 #{}를 사용 한다.
+      width: 100px * $i;
+  }
+}
+
+// ----------------------------------------------
+// 함수
+
+@mixin center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+@function ratio($size, $ratio) {
+  @return $size * $ratio
+}
+.box {
+  $width: 100px;
+  width: $width;
+  height: ratio($width, 1/2); // 16:9 비율로 하려면 9/16을 나눠야함
+  @include center;
+}
+
+// ----------------------------------------------
+//색상 내장 함수
+
+.box {
+  $color: royalblue;
+  width: 200px;
+  height: 100px;
+  margin: 20px;
+  border-radius: 10px;
+  background-color: $color;
+  &:hover {
+    background-color: darken($color, 10%);
+  }
+  &.built-in {
+    background-color: mix($color, red); // 믹스시킴
+    background-color: lighten($color, 10%); // 밝게
+    background-color: darken($color, 10%); // 어둡게
+    background-color: saturate($color, 10%); // 채도 밝게
+    background-color: desaturate($color, 40%); // 채도를 어둡게
+    background-color: grayscale($color); // 주어진 색상을 회색으로 만들어줌
+    background-color: invert($color); // 색상을 반전시킴
+    background-color: rgba($color, .5); // 투명도 지정
+    
+  }
+}
+
+// ----------------------------------------------
+//가져오기
+
+// @import "./sub.scss"; scss 파일 가져오기
+// @import "./sub"; 확장자 명시 안해도 됨
+// @import "./sub", "./sub2"; 여러 scss 파일을 가져올수 있음.
+
+// ----------------------------------------------
+// 데이터 종류
+
+$number: 1; // .5, 100px, 1em
+$string: bold; //relative, "../images/a.png"
+$color: red; // blue, #FFFF00, rgba(0,0,0,.1)
+$boolean: true; // false
+$null: null;
+$list: orange, royalblue, yellow; // js 배열데이터와 동일
+$map: ( // js 객체 데이터와 비슷하나 소괄호()을 사용
+    o: orange,
+    r: royalblue,
+    y: yellow
+);
+.box {
+    width: 100px;
+    color: red;
+    position: relative;
+    position: null;
+}
+
+// ----------------------------------------------
+
+$list: orange, royalblue, yellow; // js 배열데이터와 동일
+@each $c in $list {
+  .box {
+      color: $c;
+  }
+}
+
+// ----------------------------------------------
+
+$map: ( // js 객체 데이터와 비슷하나 소괄호()을 사용
+    o: orange,
+    r: royalblue,
+    y: yellow
+);
+@each $k, $v in $map {
+    .box-#{$k} {
+        color: $v;
+    }
+}
+
+// ----------------------------------------------
+//재활용 @content
+
+@mixin left-top {
+  position: absolute;
+  top: 0;
+  left: 0;
+  @content;
+}
+.container {
+  width: 100px;
+  height: 100px;
+  @include left-top;
+}
+.box {
+  width: 200px;
+  height: 300px;
+  @include left-top { // 중괄호 사이에 있는 내용을 추가할 시에 위에 @content로 들어감.
+      bottom: 0;
+      right: 0;
+      margin: auto;
+  }
 }
