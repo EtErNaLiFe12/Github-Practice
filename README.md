@@ -1,10 +1,8 @@
-# Practice programming
+# Programming study
 
 ## Study List
-1. **Html**
-1. **Css**
-1. **Javascript**
-1. **Scss/Sass**
+1. **Markdown**
+1. **SCSS**
 1. **Bootstrap**
 1. **React**
 1. **vue.js**
