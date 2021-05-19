@@ -1,6 +1,6 @@
 # Programming study
 
-## Study List
+## Programming List
 1. **Markdown**
 1. **SCSS**
 1. **Bootstrap**
